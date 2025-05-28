@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Reviews Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+ 
+
+<!-- כותרת -->
+    <h1>Reviews page</h1>
+    <form id="reviewForm"> 
+
+    <!-- משבצות למילוי המידע בנוגע לביקורת -->
+
+     <!--תאריך הביקור במסעדה- נותן טווח אפשרי של בין 1/1/2000 לטובת רלוונטיות לבין ה 31/12/2030 -->
+
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date"
+             min="2000-01-01" max="2030-12-31"
+             placeholder="Select a date" required>
+
+    <!-- בחירת המסעדה בה ביקרת מתוך האפשרויות שהאתר מציע. -->
+
+       <lable for = "restaurant">Restaurant:</lable>
+       <select name= restaurant id="restaurant" required>
+          <option value = ""> select the restaurant's name!</option>
+          <option value = "ויטרינה אבן גבירול"> ויטרינה אבן גבירול </option>
+          <option value = "ויטרינה לילינבלום"> ויטרינה לילינבלום </option>
+          <option value = "GDB מעוז תל אביב"> GDB מעוז תל אביב </option>
+          <option value= "GDB אבן גבירול"> GDB אבן גבירול</option>
+          <option value = "פרוזדור"> פרוזדור </option>
+          <option value = "BEN'Z אבן גבירול"> BEN'Z אבן גבירול</option>
+          <option value="BEN'Z פלורנטין "> BEN'Z פלורנטין</option>
+          <option value=" גורמה 26"> גורמה 26 </option>
+          <option value=" MEAT BAR קלמן" > MEAT BAR קלמן</option>
+          <option value= "MEAT BAR חן "> MEAT BAR חן </option>
+          <option value= " MEAT BAR אבן גבירול" > MEAT BAR אבן גבירול</option>
+          <option value="M25 הכרמל"> M25 הכרמל</option>
+          <option value="M25 רמת אביב"> M25 רמת אביב</option>
+          <option value="LOCAL BURGER"> LOCAL BURGER </option>
+          <option value="LBS דיזינגוף"> LBS דיזינגוף</option>
+          <option value=" פארק המסילה"> פארק המסילה</option>
+          <option value="PORT 19 החשמונאים">PORT 19 החשמונאים</option>
+          <option value="PORT 19 שלמה המלך">PORT 19 שלמה המלך</option>
+          <option value="PORT 19 הרצל">PORT 19 הרצל</option>
+          <option value="SUSU AND SONS">SUSU AND SONS</option>
+          <option value="הגראז">הגראז</option>
+          <option value="OSU">OSU</option>
+          <option value="AMERICAN BURGERS">AMERICAN BURGERS</option>
+          <option value="גרינברג">גרינברג</option>
+          <option value="הולשטיין">הולשטיין</option>
+          <option value="הסמטה בשוסטר">הסמטה בשוסטר</option>
+          <option value="מקום של בשר">מקום של בשר</option>
+          <option value="M32">M32</option>
+          <option value="FAT COW">FAT COW</option>
+          <option value="המוסד">המוסד</option>
+
+    <!-- כתיבת הביקורת תוך הגבלה למינימום של 5 תווים ומקסימוומקסימום של 200 לטובת ביקורות קצרות אך לא חסרות תכלית --> 
+      <label for="review">Review:</label>
+      <textarea id="review" name="review"
+                placeholder="Write the review here! (between 5 to 200 chars)" required></textarea>
+    <!-- כפתור שליחת הביקורת -->
+      <button type="submit">Send</button>
+    </form>
+
+<!-- כותרת לחלק השני של העמוד- קריאת הביקורות-->
+
+    <div id="reviewsContainer">
+      <h2>Submitted Reviews</h2>
+
+    </div>
+  </div>
+  <script src="reviews.js"></script>
+
+  
+</body>
+</html>
+
+
+<!-- הערות הקשורות ב סטייל:-->
+<!-- body עיצוב כללי לגוף הדף--> 
+<!-- container עיצוב כללי לקונטיינר הראשי שמכיל את כל התוכן--> 
+<!--   h1, h2 ישור כלל הכותרות לאמצע העמוד-->
+<!-- form אלמנטים בטופס יסתדרו אחד מתחת לשני-->
+<!-- label עיצוב התגיות--> 
+<!-- input, textarea עיצוב לשדות הטקסט- input, textarea--> 
+<!-- textarea שינוי גודל תיבת הטקסט הגדולה והגדרת גודל מינימלי-->
+<!-- button כפתור לשליחת ביקורת-->
+<!--  button:hover שינוי צבע הכפתור בהנחת העכבר עליו-->
+<!--  reviewBox תיבת ביקורת-->
+<!-- media  עיצוב מותאם לגודל של מסך קטן-->
+<!-- a כל קישור בשורה נפרדת ותפיסת 80 אחוז מהמסך-->
+<!-- img התאמה לרוחב המסך-->
+<!-- button הכפתור יתפרס לכל רוחב המסך-->
+
+
+
+
+
+
+
+
+<style>
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+
+  .container {
+    max-width: 700px;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+
+  h1, h2 {
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  label {
+    margin-top: 15px;
+    font-weight: bold;
+  }
+  
+  input, textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  
+  textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+  
+
+  button {
+    margin-top: 20px;
+    padding: 10px;
+     background-color:  #e0d18b; 
+     color:  #af784c;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  button:hover {
+     background-color:  #af784c; 
+     color:  #e0d18b;
+  }
+  
+
+  #reviewsContainer {
+    margin-top: 40px;
+  }
+  
+  .reviewBox {
+    background-color: #eef;
+    border-left: 4px solid #af784c; 
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+  }
+
+
+  @media (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+
+
+    a {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
+    }
+
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
+</style>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BBTLV - עמוד הבית</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("delicious-burger-studio.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Baloo 2', cursive;
+            text-align: center;
+            direction: rtl;
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: brown;
+            color: white;
+            padding: 15px 25px;
+            margin: 10px;
+            display: inline-block;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+   
+    <br>
+    <!-- לוגו קטן בפינה השמאלית העליונה -->
+    <img src="burger.png" style="position: absolute; top: 10px; left: 10px; width: 60px;">
+
+    <!-- לוגו גדול במרכז -->
+    <img src="Asset%201.png" width="200">
+
+   
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+    <!-- הקישורים למטה בשורה -->
+    <div style="margin-top: 200px;">
+        <a href="SEARCH_PAGE">עמוד החיפוש</a>
+        <a href="MAP_PAGE">מפת המסעדות</a>
+        <a href="REVIEWS_PAGE">ביקורות משתמשים</a>
+    </div>
+
+</body>
+</html>

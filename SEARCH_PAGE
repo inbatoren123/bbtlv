@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Forms</title>
+    <style>
+      h2 {
+        color: rgb(48, 79, 217);
+        font-size: 36px;
+        font-family: fantasy;
+      }
+      h3 {
+        color: rgb(0, 149, 255);
+        font-size: 28px;
+        font-family: fantasy;
+      }
+      b {
+        color: rgb(8, 222, 255);
+        font-size: 24px;
+        font-family: fantasy;
+      }
+      div {
+        color: rgb(0, 0, 0);
+        font-size: 20px;
+        font-family: fantasy;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>BURGER SEARCH</h2>
+    <form action="THE_RESTAURANTS" method="GET">
+      <h3>CHOOSE YOUR PREFERENCES</h3>
+
+      <b>BURGER MEAL PRICE:</b><br>
+      <input type="checkbox" name="price_double" id="price_double">
+      <label for="price_double">$$</label><br>
+      <input type="checkbox" name="price_triple" id="price_triple">
+      <label for="price_triple">$$$</label><br><br>
+
+      <b>AREA IN TLV:</b><br>
+      <input type="radio" name="area" value="NORTH" id="NORTH">
+      <label for="NORTH">NORTH</label><br>
+      <input type="radio" name="area" value="CENTER" id="CENTER">
+      <label for="CENTER">CENTER</label><br>
+      <input type="radio" name="area" value="SOUTH" id="SOUTH">
+      <label for="SOUTH">SOUTH</label><br><br>
+
+      <b>RANK:</b><br>
+      <input type="radio" name="rank" value="RANK1" id="RANK1">
+      <label for="RANK1">4+</label><br>
+      <input type="radio" name="rank" value="RANK2" id="RANK2">
+      <label for="RANK2">3+</label><br>
+      <input type="radio" name="rank" value="ALL_RANKS" id="ALL_RANKS">
+      <label for="ALL_RANKS">ALL RANKS</label><br><br>
+
+      <button type="reset">Reset</button>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
