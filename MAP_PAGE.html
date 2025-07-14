@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>כפתור לגוגל מפה</title><!-- כותרת לדף שמתאר את המפה -->
+  <!--הגדת הכפתור שמעביר אותנו למפה של כל המסעדות.-->
+  <!-- כפתור זה עם צבע הרקע של הכפתור, צבע הכפתור, גודל טקסט ועוד. -->
+<!--הגדרת אנימציה שברגע שהעכבר עובר על הכפתור, הצבע של הכפתור והצבע של הטקסט מתחלפים -->
+ <link href="map.jpg" rel="stylesheet">
+  <style>
+    body{
+      background-image: url("/EX/pictures/map.jpg");
+    }
+    .my-button {
+      background-color: #af784c; 
+      color:  #e0d18b;
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    h1, h2 {
+      font-family:  cursive;
+      text-align: center;
+
+    }
+    .container {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+    .my-button:hover {
+      background-color: #e0d18b;
+       color: #af784c;
+        
+    }
+   
+  </style>
+    <!-- כותרת למפה והגדרה שברגע שלוחצים על הכפתור, יש קישור שמעביר את המשתמש למפה בגוגל ארץ שמציגה את כל המסעדות והמיקומים שלהן -->
+
+</head>
+<body>
+    <h1>
+        <strong>link to map bellow</strong>
+    </h1><br>
+    <h2><strong>(downloads a kml file)</strong></h2><br>
+
+<div class="container">
+  <a href="https://did.li/BBTLV-MAP-" 
+   class="my-button" 
+   target="_blank">
+   MAP
+</a>
+</div>
+
+</body>
+</html>

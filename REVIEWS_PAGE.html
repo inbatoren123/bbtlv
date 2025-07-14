@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reviews Page</title>
+  <style>
+    body {
+      background-image: url("/EX/pictures/newBurgerPhoto.jpg");
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #e0d18b;
+      color: #af784c;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #af784c;
+      color: #e0d18b;
+    }
+
+    #reviewsContainer {
+      margin-top: 40px;
+    }
+
+    .reviewBox {
+      background-color: #eef;
+      border-left: 4px solid #af784c;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 10px;
+      }
+
+      button {
+        width: 100%;
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Reviews page</h1>
+
+    <form id="reviewForm" method="POST" action="/submit-review">
+      <label for="date">Date:</label>
+      <input type="date" id="date" name="date" min="2000-01-01" required>
+
+      <label for="restaurant">Restaurant:</label>
+      <select id="restaurant" name="restaurant" required>
+        <option value="">Select the restaurant's name!</option>          <option value="">Select the restaurant's name!</option>
+        <option value="ויטרינה אבן גבירול">ויטרינה אבן גבירול</option>
+        <option value="ויטרינה לילינבלום">ויטרינה לילינבלום</option>
+        <option value="GDB מעוז תל אביב">GDB מעוז תל אביב</option>
+        <option value="GDB אבן גבירול">GDB אבן גבירול</option>
+        <option value="פרוזדור">פרוזדור</option>
+        <option value="BEN'Z אבן גבירול">BEN'Z אבן גבירול</option>
+        <option value="BEN'Z פלורנטין">BEN'Z פלורנטין</option>
+        <option value="גורמה 26">גורמה 26</option>
+        <option value="MEAT BAR קלמן">MEAT BAR קלמן</option>
+        <option value="MEAT BAR חן">MEAT BAR חן</option>
+        <option value="MEAT BAR אבן גבירול">MEAT BAR אבן גבירול</option>
+        <option value="M25 הכרמל">M25 הכרמל</option>
+        <option value="M25 רמת אביב">M25 רמת אביב</option>
+        <option value="LOCAL BURGER">LOCAL BURGER</option>
+        <option value="LBS דיזינגוף">LBS דיזינגוף</option>
+        <option value="פארק המסילה">פארק המסילה</option>
+        <option value="PORT 19 החשמונאים">PORT 19 החשמונאים</option>
+        <option value="PORT 19 שלמה המלך">PORT 19 שלמה המלך</option>
+        <option value="PORT 19 הרצל">PORT 19 הרצל</option>
+        <option value="SUSU AND SONS">SUSU AND SONS</option>
+        <option value="הגראז">הגראז</option>
+        <option value="OSU">OSU</option>
+        <option value="AMERICAN BURGERS">AMERICAN BURGERS</option>
+        <option value="גרינברג">גרינברג</option>
+        <option value="הולשטיין">הולשטיין</option>
+        <option value="הסמטה בשוסטר">הסמטה בשוסטר</option>
+        <option value="מקום של בשר">מקום של בשר</option>
+        <option value="M32">M32</option>
+        <option value="FAT COW">FAT COW</option>
+        <option value="המוסד">המוסד</option>
+
+      </select>
+
+      <label for="review">Review:</label>
+      <textarea id="review" name="review" placeholder="Write the review here! (between 5 to 200 chars)" minlength="5" maxlength="200" required></textarea>
+
+      <button type="submit">Send</button>
+      <h5>want to see the data base of others' reviews?</h5>
+      <button type="button" onclick="showAllReviews()">press here</button>
+    </form>
+
+    <div id="reviewsContainer"></div>
+  </div>
+
+  <script src="./reviews.js"></script>
+</body>
+</html>

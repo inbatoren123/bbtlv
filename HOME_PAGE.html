@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BBTLV - עמוד הבית</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("/EX/pictures/delicious-burger-studio.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            font-family: 'Baloo 2', cursive;
+            text-align: center;
+            direction: rtl;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+        }
+
+        img {
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: white;
+        }
+
+        a {
+            text-decoration: none;
+            background-color: brown;
+            color: white;
+            padding: 15px 25px;
+            margin: 10px;
+            display: inline-block;
+            font-size: 20px;
+            border-radius: 5px;
+        }
+
+        .button-container {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.2); /* רקע שקוף עדין */
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 10px;
+            }
+
+            a {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- לוגו קטן בפינה השמאלית העליונה -->
+    <img src="/EX/pictures/burger.png" style="position: absolute; top: 10px; left: 10px; width: 60px;">
+
+    <!-- לוגו גדול במרכז -->
+    <img src="/EX/pictures/Asset 1.png" width="200">
+
+    <!-- מיכל הכפתורים בתחתית -->
+    <div class="button-container">
+        <a href="SEARCH_PAGE.html">עמוד החיפוש</a>
+        <a href="MAP_PAGE.html">מפת המסעדות</a>
+        <a href="REVIEWS_PAGE.html">ביקורות משתמשים</a>
+    </div>
+</body>
+</html>

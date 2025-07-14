@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forms</title>
+    <link href="burgerBackground.avif" rel="stylesheet">
+  <style>
+    body{
+      background-image: url("/EX/pictures/burgerBackground.avif");
+      text-align: center;
+    }
+
+      h2 {
+        color:  #ba9f44;
+        font-size: 36px;
+        font-family:  cursive;
+      }
+
+      h3 {
+        color: #b99857;
+        font-size: 28px;
+        font-family:  cursive;
+      }
+
+      b {
+        color:#e0d18b;
+        font-size: 16px;
+        font-family:  cursive;
+      }
+
+
+      /* התאמה למסכים קטנים (רספונסיביות) */
+
+        @media (max-width: 1300px) {
+          body {
+              text-align: left;
+              padding-left: 40px; /* שתהיה קצת מרווחת מהצד */
+             }
+        }
+
+
+        a {
+          display: block;
+          margin: 10px auto;
+          width: 80%;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        .container {
+          width: 100%;
+          padding: 10px;
+        }
+
+        form {
+          width: 100%;
+        }
+
+        button {
+          width: auto;
+          margin: 5px 0;
+        }
+      
+    </style>
+  </head>
+
+  <body>
+    <!-- כותרת ראשית -->
+    <h2>BURGER SEARCH</h2>
+
+    <!-- טופס בחירת העדפות -->
+    <form action="THE_RESTAURANTS.html" method="GET">
+      <!-- כותרת משנה -->
+      <h3>CHOOSE YOUR PREFERENCES</h3>
+
+      <!-- בחירת מחיר -->
+      <b>BURGER MEAL PRICE:<br>
+      <input type="checkbox" name="price_double" id="price_double">
+      <label for="price_double">$$</label><br>
+      <input type="checkbox" name="price_triple" id="price_triple">
+      <label for="price_triple">$$$</label><br><br>
+
+      <!-- בחירת אזור -->
+      <b>AREA IN TLV:</b><br>
+      <input type="radio" name="area" value="NORTH" id="NORTH">
+      <label for="NORTH">NORTH</label><br>
+      <input type="radio" name="area" value="CENTER" id="CENTER">
+      <label for="CENTER">CENTER</label><br>
+      <input type="radio" name="area" value="SOUTH" id="SOUTH">
+      <label for="SOUTH">SOUTH</label><br><br>
+
+      <!-- בחירת דירוג -->
+      <b>RANK:</b><br>
+      <input type="radio" name="rank" value="RANK1" id="RANK1">
+      <label for="RANK1">4+</label><br>
+      <input type="radio" name="rank" value="RANK2" id="RANK2">
+      <label for="RANK2">3+</label><br>
+      <input type="radio" name="rank" value="ALL_RANKS" id="ALL_RANKS">
+      <label for="ALL_RANKS">ALL RANKS</label><br><br>
+
+      <!-- כפתורים -->
+      <button type="reset">Reset</button>
+      <button type="submit">Submit</button>
+    </form><br>
+
+    <button type="button" onclick="surpriseMe()">Surprise me!</button>
+    <p id="result"></p>
+    <button type="button" onclick="showSearches()">מה אחרים חיפשו</button>
+
+    <script>
+    function surpriseMe() {
+      var burgers = ["פרוזדור","gdb","ויטרינה","ben'z","גורמה 26","meat bar","m25","lockal burger","lbs","port 19","susu and sons","הגראז׳","osu","america burgers","גרינברג","הולשטיין","הסמטה בשוסטר","מקום של בשר","m32","fat cow","המוסד"];
+      var randomNumber = Math.floor(Math.random() * burgers.length);
+      var chosenBurger = burgers[randomNumber];
+      document.getElementById("result").innerText = "Your burger is: " + chosenBurger;
+    }
+    document.querySelector("form").addEventListener("submit", async function (e) {
+    e.preventDefault(); // נבטל שליחה רגילה
+
+    const area = document.querySelector("input[name='area']:checked")?.value || "";
+    const therank = document.querySelector("input[name='rank']:checked")?.value || "";
+    let price = [];
+
+    if (document.getElementById("price_double").checked) price.push("$$");
+    if (document.getElementById("price_triple").checked) price.push("$$$");
+
+    // שליחת הנתונים לשרת
+    await fetch("/save-search", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        area,
+        price: price.join(", "),
+        therank
+      })
+    });
+
+    // המשך לפעולת הטופס (הניווט ל-THE_RESTAURANTS.html)
+    this.submit();
+  });
+  async function showSearches() {
+    try {
+      const res = await fetch("/get-searches");
+      const data = await res.json();
+
+      if (!data.length) {
+        alert("אין עדיין חיפושים קודמים.");
+        return;
+      }
+
+      let output = "חיפושים קודמים:\n\n";
+      data.forEach(item => {
+        output += `אזור: ${item.area}, מחיר: ${item.price}, דירוג: ${item.therank}\n`;
+      });
+
+      alert(output);
+    } catch (err) {
+      console.error("בעיה בשליפת חיפושים:", err);
+      alert("שגיאה בטעינת נתוני העבר.");
+    }
+  }
+  </script>
+  </body>
+</html>
